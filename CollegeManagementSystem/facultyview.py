@@ -46,3 +46,27 @@ def editFaculty(request,id):
         facultyData.save()
         return redirect(faculty1)
     
+
+def AddFaculty(request):
+    if request.method == "GET":
+        return render(request,"Faculty/addform.html")
+    else:
+        name = request.POST.get("fname")
+        hodname = request.POST.get("fh_name")
+        mno= request.POST.get("fmno")
+        email = request.POST.get("femail")
+        dept = request.POST.get("fdepartment")
+        positions = request.POST.get("fposition")
+        qualify= request.POST.get("fqualification")
+
+        saveData = facultys(
+            fname=name,
+            fh_name=hodname,
+            fmno=mno,
+            femail=email,
+            fdepartment=dept,
+            fposition=positions,
+            fqualification=qualify,
+            )
+        saveData.save()
+        return redirect(faculty1)

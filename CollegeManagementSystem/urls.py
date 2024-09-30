@@ -30,6 +30,9 @@ urlpatterns = [
     path('faculty-view/<id>', facultyview.fview),
     path('faculty-delete/<id>',facultyview.delete),
     path('faculty-edit/<id>', facultyview.editFaculty),
+    path('faculty-add/', facultyview.AddFaculty),
+
+    
     path('student-list/',studentview.student1),
 
 
