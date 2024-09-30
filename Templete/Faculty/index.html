@@ -27,9 +27,7 @@
                             <td>
                                 {{ forloop.counter }}
                             </td>
-                            <td>
-                                {{ forloop.counter }}
-                            </td>
+                           
                             <td>
                                 {{ i.fname }}
                             </td>
@@ -51,18 +49,14 @@
                             <td>
                                 {{ i.fqualification }}
                             </td>
-                            {% empty %}
+                            
                             <td>
                                 <a href=""  class="btn btn-primary">View</a>
                                 <a href=""  class="btn btn-primary">Edit</a>
                                 <a href=""  class="btn btn-primary">Delete</a>  
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2">
-                                <span class="text-primary">City Not found</span>
-                            </td>
-                        </tr>
+                      
                         {% endfor %}
                     </table>
                 </div>
