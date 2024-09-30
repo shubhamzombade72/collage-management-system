@@ -1,12 +1,11 @@
 {% include "../components/header.html" %}
 {% include "../components/sidebar.html" %}
-<div class="content">
     <div class="container">
         <div class="card">
             <div class="card-header">
                 Faculty Records
                 <div class="btn btn-success">
-
+                    ADD Faculty
                 </div>
             </div>
             <div class="card-body">
@@ -32,13 +31,13 @@
                                 {{ forloop.counter }}
                             </td>
                             <td>
-                                {{ i.fid }}
-                            </td>
-                            <td>
                                 {{ i.fname }}
                             </td>
                             <td>
                                 {{ i.fh_name }}
+                            </td>
+                            <td>
+                                {{ i.fmno }}
                             </td>
                             <td>
                                 {{ i.femail }}
@@ -70,5 +69,4 @@
             </div>
         </div>
     </div>
-</div>
 {% include "../components/footer.html" %}
