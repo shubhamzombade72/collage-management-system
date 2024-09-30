@@ -18,6 +18,32 @@ def facultyview(request,id):
     return render(request,"Faculty/view.html",fdata)
 
 def delete(request,id):
-    customerData= facultys.objects.get(id=int(id))
-    customerData.delete() 
+    facultyData= facultys.objects.get(id=int(id))
+    facultyData.delete() 
     return redirect(faculty1)
+
+def editFaculty(request,id):
+    facultyData= facultys.objects.get(id=int(id))
+    if request.method == "GET":
+        data={
+        "facultyData":facultyData,
+    }
+        return render(request,"customer/edit.html",data)
+    else:
+        name = request.POST.get("fname")
+        hodname = request.POST.get("fh_name")
+        mno= request.POST.get("fmno")
+        email = request.POST.get("femail")
+        dept = request.POST.get("fdepartment")
+        positions = request.POST.get("fposition")
+        qualify= request.POST.get("fqualification")
+        facultyData.fname=name
+        facultyData.fh_name=hodname
+        facultyData.fmno=mno
+        facultyData.femail=email
+        facultyData.fdepartment=dept
+        facultyData.fposition=positions
+        facultyData.fqualification=qualify
+        facultyData.save()
+        return redirect(faculty1)
+    
