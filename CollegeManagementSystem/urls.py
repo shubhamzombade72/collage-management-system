@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from CollegeManagementSystem import views
+from CollegeManagementSystem import facultyview
+from CollegeManagementSystem import studentview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.indexpage),
+
+    path('faculty-list/', facultyview.faculty1),
+    path('student-list/',studentview.student1)
 ]
