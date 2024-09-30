@@ -25,22 +25,20 @@
                         </tr>
                     
                         {% for department in deptData %}
-                        {% if department.id == Id %}
                         <tr>
-                            <td>{{ forloop.counter }} </td>
+                            <td>{{ forloop.counter }}</td>
                             <td>{{ department.dept_name }}</td>
                             <td>{{ department.dept_code }}</td>
                             <td>{{ department.hod_name }}</td>
                             <td>{{ department.dept_location }}</td>
                             <td>{{ department.contact_number }}</td>
                             <td>{{ department.email_address }}</td>
-                            <td>  
+                            <td>
                                 <a href="/department-view/{{ department.id }}" class="btn btn-primary">View</a>
                                 <a href="/department-edit/{{ department.id }}" class="btn btn-primary">Edit</a>
                                 <a href="/department-delete/{{ department.id }}" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
-                        {% endif %}
                         {% empty %}
                         <tr><td colspan="8">No Departments Found</td></tr>
                         {% endfor %}
