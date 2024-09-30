@@ -20,6 +20,7 @@ from CollegeManagementSystem import views
 from CollegeManagementSystem import facultyview
 from CollegeManagementSystem import studentview
 from CollegeManagementSystem import subjectview
+from CollegeManagementSystem import Depart_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,13 @@ urlpatterns = [
     path('faculty-list/', facultyview.faculty1),
     path('student-list/',studentview.student1),
 
+
     path('sub-list/',subjectview.subject),
+
+    path('department-list/', Depart_view.department_list),
+    # path('department-add/', Depart_view.add_department),
+    # path('department-edit/<id>', Depart_view.edit_department),  
+    # path('department-view/<id>', Depart_view.department_view),
+    # path('department-delete/<id>', Depart_view.delete_department),
+
 ]
