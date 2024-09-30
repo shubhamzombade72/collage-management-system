@@ -28,7 +28,7 @@ def editFaculty(request,id):
         data={
         "facultyData":facultyData,
     }
-        return render(request,"customer/edit.html",data)
+        return render(request,"Faculty/edit.html",data)
     else:
         name = request.POST.get("fname")
         hodname = request.POST.get("fh_name")
