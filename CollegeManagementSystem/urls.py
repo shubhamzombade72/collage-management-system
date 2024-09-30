@@ -27,10 +27,9 @@ urlpatterns = [
     path('', views.indexpage),
 
     path('faculty-list/', facultyview.faculty1),
-    path('faculty-view/<id>', facultyview.facultyview),
-    path('faculty-delete/<id>', facultyview.delete),
+    path('faculty-view/<id>', facultyview.fview),
+    path('faculty-delete/<id>',facultyview.delete),
     path('faculty-edit/<id>', facultyview.editFaculty),
-
     path('student-list/',studentview.student1),
 
 

@@ -1,4 +1,6 @@
 
+{% include "../components/header.html" %}
+{% include "../components/sidebar.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +32,7 @@
         <input type="text" class="form-control" placeholder="Enter femail" value="{{facultyData.femail}}" name="femail">
       </div>
     </div>
-    <br><br>
+    <br><br>c
     <div class="row">
       <div class="col">
         <input type="text" class="form-control" placeholder="Enter fdepartment" value="{{facultyData.fdepartment}}" name="fdepartment">
@@ -52,3 +54,4 @@
 </div>
 </body>
 </html>
+{% include "../components/footer.html" %}

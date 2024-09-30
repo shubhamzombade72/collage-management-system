@@ -2,18 +2,17 @@ from django.shortcuts import render,redirect
 from Faculty.models import facultys
 def faculty1(request):
     facultyData = facultys.objects.all()
-    fdatadata={
+    fdata={
         "facultyData":facultyData
     }
-    return render(request,"Faculty/index.html",fdatadata)
+    return render(request,"Faculty/index.html",fdata)
 
 
-def facultyview(request,id):
-    facultyData = facultys.objects.all()
-  
-    fdata={
-        "facultyData":facultyData,
-         "id":int(id),
+def fview(request, id):
+    facultyData = facultys.objects.all()  
+    fdata = {
+        "facultyData": facultyData,
+        "id": int(id),  
     }
     return render(request,"Faculty/view.html",fdata)
 
@@ -25,10 +24,10 @@ def delete(request,id):
 def editFaculty(request,id):
     facultyData= facultys.objects.get(id=int(id))
     if request.method == "GET":
-        data={
+        fdata={
         "facultyData":facultyData,
     }
-        return render(request,"Faculty/edit.html",data)
+        return render(request,"Faculty/edit.html",fdata)
     else:
         name = request.POST.get("fname")
         hodname = request.POST.get("fh_name")
