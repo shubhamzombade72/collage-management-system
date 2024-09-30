@@ -8,7 +8,7 @@ def subject(request):
     return render(request,"subjects/index.html",subData)
 
 def view(request,id):
-    subData= Subjects.objects.all()
+    subData= Subjects.objects.get(id=id)
     print(id)
     data = {
         "subData":subData,
