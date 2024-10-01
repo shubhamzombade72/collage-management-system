@@ -19,6 +19,7 @@ from django.urls import path
 from CollegeManagementSystem import views
 from CollegeManagementSystem import facultyview
 from CollegeManagementSystem import studentview
+from CollegeManagementSystem import subjectview
 from CollegeManagementSystem import Depart_view
 
 urlpatterns = [
@@ -26,11 +27,24 @@ urlpatterns = [
     path('', views.indexpage),
 
     path('faculty-list/', facultyview.faculty1),
+    path('faculty-view/<id>', facultyview.fview),
+    path('faculty-delete/<id>',facultyview.delete),
+    path('faculty-edit/<id>', facultyview.editFaculty),
+    path('faculty-add/', facultyview.AddFaculty),
+
+    
     path('student-list/',studentview.student1),
+
+
+    
 
     path('department-list/', Depart_view.department_list),
     # path('department-add/', Depart_view.add_department),
     # path('department-edit/<id>', Depart_view.edit_department),  
     # path('department-view/<id>', Depart_view.department_view),
     # path('department-delete/<id>', Depart_view.delete_department),
+
+    path('sub-list/',subjectview.subject),
+    path('sub-view/<id>',subjectview.view),
+
 ]
