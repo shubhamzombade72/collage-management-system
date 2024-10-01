@@ -74,7 +74,7 @@ def delete_department(request,id):
 
 def LoginForm(request):
     if request.method == "GET":
-        return render(request,"Department/LoginForm.html")
+        return render(request,"Department/loginForm.html")
     else:
         email = request.POST.get("femail")
         password = request.POST.get("password")
