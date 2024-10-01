@@ -19,23 +19,24 @@
                         <th>Email Address</th>
                         <th>Actions</th>
                     </tr>
-                    {% for department in departmentData %}
+                    {% for i in department_data %}
+                    {% if i.id == id %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td>{{ department.dept_name }}</td>
-                        <td>{{ department.dept_code }}</td>
-                        <td>{{ department.hod_name }}</td>
-                        <td>{{ department.dept_location }}</td>
-                        <td>{{ department.contact_number }}</td>
-                        <td>{{ department.email_address }}</td>
+                        <td>{{ i.dept_name }}</td>
+                        <td>{{ i.dept_code }}</td>
+                        <td>{{ i.hod_name }}</td>
+                        <td>{{ i.dept_location }}</td>
+                        <td>{{ i.contact_number }}</td>
+                        <td>{{ i.email_address }}</td>
+                       
                         <td>
                             <a href="/department-list/" class="btn btn-primary">Back</a>
+                    
                         </td>
+                    
                     </tr>
-                    {% empty %}
-                    <tr>
-                        <td colspan="8">No department records found.</td>
-                    </tr>
+                    {% endif %}
                     {% endfor %}
                 </table>
             </div>
