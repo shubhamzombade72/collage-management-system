@@ -71,3 +71,17 @@ def delete_department(request,id):
     department = Department.objects.get(id=int(id))
     department.delete()
     return redirect(department_list)
+
+def LoginForm(request):
+    if request.method == "GET":
+        return render(request,"Department/LoginForm.html")
+    else:
+        email = request.POST.get("femail")
+        password = request.POST.get("password")
+
+        saveData = department_list(
+            femail=email,
+            password=password,
+            )
+        saveData.save()
+        return redirect(department_list)
