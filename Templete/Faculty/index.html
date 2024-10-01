@@ -5,7 +5,7 @@
             <div class="card-header">
                 Faculty Records
                 <div class="btn btn-success">
-                    ADD Faculty
+                    <a href="/faculty-add/">Add Faculty</a>
                 </div>
             </div>
             <div class="card-body">
@@ -24,40 +24,22 @@
                         </tr>
                         {% for i in facultyData %}
                         <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.fname }}</td>
+                            <td>{{ i.fh_name }}</td>
+                            <td>{{ i.fmno }}</td>
+                            <td>{{ i.femail }}</td>
+                            <td>{{ i.fdepartment }}</td>
+                            <td>{{ i.fposition }}</td>
+                            <td>{{ i.fqualification }}</td>
                             <td>
-                                {{ forloop.counter }}
-                            </td>
-                           
-                            <td>
-                                {{ i.fname }}
-                            </td>
-                            <td>
-                                {{ i.fh_name }}
-                            </td>
-                            <td>
-                                {{ i.fmno }}
-                            </td>
-                            <td>
-                                {{ i.femail }}
-                            </td>
-                            <td>
-                                {{ i.fdepartment }}
-                            </td>
-                            <td>
-                                {{ i.fposition }}
-                            </td>
-                            <td>
-                                {{ i.fqualification }}
-                            </td>
-                            
-                            <td>
-                                <a href=""  class="btn btn-primary">View</a>
-                                <a href=""  class="btn btn-primary">Edit</a>
-                                <a href=""  class="btn btn-primary">Delete</a>  
+                                <a href="/faculty-view/{{i.id}}" class="btn btn-primary">View</a>
+                                <a href="/faculty-edit/{{i.id}}" class="btn btn-primary">Edit</a>
+                                <a href="/faculty-delete/{{i.id}}" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
-                      
                         {% endfor %}
+
                     </table>
                 </div>
             </div>
