@@ -51,7 +51,7 @@ urlpatterns = [
     
 
     path('department-list/', Depart_view.department_list),
-    # path('department-add/', Depart_view.add_department),
+    path('department-add/', Depart_view.add_department),
     # path('department-edit/<id>', Depart_view.edit_department),  
     # path('department-view/<id>', Depart_view.department_view),
     # path('department-delete/<id>', Depart_view.delete_department),
