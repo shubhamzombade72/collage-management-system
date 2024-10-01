@@ -6,3 +6,13 @@ def student1(request):
         "StudentData":StudentData
     }
     return render(request,"student/index.html",sdata)
+
+def sview(request,id):
+    StudentData = students.objects.all()
+    print(id)
+    sdata={
+        "StudentData":StudentData,
+        "id":int(id),
+    }
+    return render(request,"student/view.html",sdata)
+

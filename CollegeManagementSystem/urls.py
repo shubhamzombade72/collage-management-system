@@ -25,5 +25,9 @@ urlpatterns = [
     path('', views.indexpage),
 
     path('faculty-list/', facultyview.faculty1),
-    path('student-list/',studentview.student1)
+
+
+
+    path('student-list/',studentview.student1),
+    path('student-view/<id>',studentview.sview),
 ]
