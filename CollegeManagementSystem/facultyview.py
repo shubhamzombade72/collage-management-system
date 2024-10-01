@@ -70,3 +70,17 @@ def AddFaculty(request):
             )
         saveData.save()
         return redirect(faculty1)
+    
+def LoginForm(request):
+    if request.method == "GET":
+        return render(request,"Faculty/LoginForm.html")
+    else:
+        email = request.POST.get("femail")
+        password = request.POST.get("password")
+
+        saveData = facultys(
+            femail=email,
+            password=password,
+            )
+        saveData.save()
+        return redirect(faculty1)
