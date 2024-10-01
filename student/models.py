@@ -4,8 +4,6 @@ from django.db import models
 class students(models.Model):
     sid=models.CharField(max_length=255)
     sname=models.CharField(max_length=255)
-    ssubject=models.CharField(max_length=255)
-    ssubcode=models.CharField(max_length=255)
     sdepartment=models.CharField(max_length=255)
     smno=models.CharField(max_length=255)
     semail=models.CharField(max_length=255)
