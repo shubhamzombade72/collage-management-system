@@ -12,3 +12,9 @@ class facultys(models.Model):
     fqualification=models.CharField(max_length=255)
     class Meta:
         db_table = 'tbl_Faculty'
+
+# class facultys(models.Model):
+#     femail=models.CharField(max_length=255)
+#     fpasword=models.CharField(max_length=255)
+#     class Meta:
+#         db_table = 'tbl_Login'

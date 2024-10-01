@@ -18,28 +18,28 @@
 
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" id="dept_name" placeholder="Enter Department Name" name="dept_name" required>
+        <input type="text" class="form-control" id="dept_name" placeholder="Enter Department Name" value="{{department_data.dept_name}}"  name="dept_name" required>
       </div>
       <div class="col">
-        <input type="text" class="form-control" id="dept_code" placeholder="Enter Department Code" name="dept_code" required>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" id="hod_name" placeholder="Enter HOD Name" name="hod_name" required>
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" id="dept_location" placeholder="Enter Department Location" name="dept_location" required>
+        <input type="text" class="form-control" id="dept_code" placeholder="Enter Department Code" value="{{department_data.dept_code}}" name="dept_code" required>
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col">
-        <input type="tel" class="form-control" id="contact_number" placeholder="Enter Contact Number" name="contact_number" required>
+        <input type="text" class="form-control" id="hod_name" placeholder="Enter HOD Name" value="{{department_data.hod_name}}" name="hod_name" required>
       </div>
       <div class="col">
-        <input type="email" class="form-control" id="email_address" placeholder="Enter Email Address" name="email_address" required>
+        <input type="text" class="form-control" id="dept_location" placeholder="Enter Department Location" value="{{department_data.dept_location}}" name="dept_location" required>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <input type="tel" class="form-control" value="{{department_data.contact_number}}" id="contact_number" placeholder="Enter Contact Number" name="contact_number" required>
+      </div>
+      <div class="col">
+        <input type="email" class="form-control" id="email_address" value="{{department_data.dept_location}}" placeholder="Enter Email Address" value="{{department_data.email_address}}" name="email_address" required>
       </div>
     </div>
     <br><br>
