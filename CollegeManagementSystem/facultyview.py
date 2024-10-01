@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from Faculty.models import facultys
+from django.http import response
 def faculty1(request):
     facultyData = facultys.objects.all()
     fdata={
@@ -69,7 +70,13 @@ def AddFaculty(request):
             fqualification=qualify,
             )
         saveData.save()
-        return redirect(faculty1)
+        facultyData= facultys.objects.all()
+        data={
+            "facultyData":facultyData,
+            "Message":"Record added successfully!",
+        }
+        return render(request,"Faculty/index.html",data)
+        
     
 def LoginForm(request):
     if request.method == "GET":
@@ -84,3 +91,4 @@ def LoginForm(request):
             )
         saveData.save()
         return redirect(faculty1)
+    
