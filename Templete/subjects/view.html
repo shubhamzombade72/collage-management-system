@@ -74,28 +74,28 @@
         <div class="col-md-8">
             <div class="card-container">
                 <div class="card-header">
-                    Add a New Subject
+                    View Subjects
                 </div>
                 <div class="row justify-content-center">
                     <form method="post" action="/add-subject/">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="subname" class="form-label">Subject Name</label>
-                            <input type="text" value="{{ subData.subname }}" class="form-control" id="subname" name="subname" required>
+                            <input type="text" value="{{ subData.subname }}" class="form-control" id="subname" name="subname" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="sub_code" class="form-label">Subject Code</label>
-                            <input type="text" value="{{ subData.sub_code }}" class="form-control" id="sub_code" name="sub_code" required>
+                            <input type="text" value="{{ subData.sub_code }}" class="form-control" id="sub_code" name="sub_code" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="sub_dept" class="form-label">Department</label>
-                            <input type="text" value="{{ subData.sub_dept }}" class="form-control" id="sub_dept" name="sub_dept" required>
+                            <input type="text" value="{{ subData.sub_dept }}" class="form-control" id="sub_dept" name="sub_dept" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="sem" class="form-label">Semester</label>
-                            <input type="text" value="{{ subData.sem }}" class="form-control" id="sem" name="sem" required>
+                            <input type="text" value="{{ subData.sem }}" class="form-control" id="sem" name="sem" readonly>
                         </div>
-                        <div class="d-grid gap-2">
+                        <div class="d-grid ">
                             <a href="/sub-list/" class="btn btn-back">Back</a>
                         </div>
                     </form>
