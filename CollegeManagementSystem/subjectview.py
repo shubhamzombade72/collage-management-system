@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.http import response
 from subject.models import Subjects
 def subject(request):
     subData = Subjects.objects.all()
@@ -56,7 +57,12 @@ def Addsubject(request):
             sub_code=cod,
             sub_dept=dept,
             sem=sem,
-            
             )
         saveData.save()
-        return redirect(subject)
+        
+        subData = Subjects.objects.all()
+        data={
+            "subData":subData,
+            "Message":"Record added successfully!",
+        }
+        return render(request,"subjects/index.html",data)
