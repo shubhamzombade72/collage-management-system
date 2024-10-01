@@ -31,8 +31,6 @@ def editstudent(request,id):
         return render(request,"student/edit.html",sdata)
     else:
         name = request.POST.get("sname")
-        subject = request.POST.get("ssubject")
-        code= request.POST.get("ssubcode")
         department = request.POST.get("sdepartment")
         mno = request.POST.get("smno")
         email = request.POST.get("semail")
@@ -41,8 +39,6 @@ def editstudent(request,id):
         address= request.POST.get("saddress")
 
         StudentData.sname=name
-        StudentData.ssubject=subject
-        StudentData.ssubcode=code
         StudentData.sdepartment=department
         StudentData.smno=mno
         StudentData.semail=email
@@ -58,8 +54,6 @@ def Addstudent(request):
         return render(request,"student/addform.html")
     else:
         name = request.POST.get("sname")
-        subject = request.POST.get("ssubject")
-        code= request.POST.get("ssubcode")
         department = request.POST.get("sdepartment")
         mno = request.POST.get("smno")
         email = request.POST.get("semail")
@@ -70,8 +64,6 @@ def Addstudent(request):
 
         saveData = students(
             sname=name,
-            ssubject=subject,
-            ssubcode=code,
             sdepartment=department,
             smno=mno,
             semail=email,
@@ -81,6 +73,21 @@ def Addstudent(request):
             )
         saveData.save()
         return redirect(student1)
+    
+def LoginForm(request):
+    if request.method == "GET":
+        return render(request,"student/loginform.html")
+    else:
+        email = request.POST.get("femail")
+        password = request.POST.get("password")
+
+        saveData = students(
+            femail=email,
+            password=password,
+            )
+        saveData.save()
+        return redirect(student1)
+    
     
 
 
