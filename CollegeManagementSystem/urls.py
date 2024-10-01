@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.indexpage),
 
-    path('faculty-list/', facultyview.faculty1),
+    
 
 
 
@@ -39,7 +39,7 @@ urlpatterns = [
 
 
 
-
+    path('faculty-list/', facultyview.faculty1),
     path('faculty-view/<id>', facultyview.fview),
     path('faculty-delete/<id>',facultyview.delete),
     path('faculty-edit/<id>', facultyview.editFaculty),
@@ -56,7 +56,16 @@ urlpatterns = [
     # path('department-view/<id>', Depart_view.department_view),
     # path('department-delete/<id>', Depart_view.delete_department),
 
+
+
+
+
+
+
     path('sub-list/',subjectview.subject),
     path('sub-view/<id>',subjectview.view),
+    path('sub-edit/<id>',subjectview.edit),
+    path('sub-add/',subjectview.Addsubject),
+    path('sub-delete/<id>',subjectview.delete),
 
 ]
