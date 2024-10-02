@@ -2,57 +2,104 @@
 {% include "../components/sidebar.html" %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Subjects</title>
+  <title>Subjects Add Form</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: rgb(240, 240, 240); /* Light gray background */
+    }
+
+    .form-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: rgb(255, 255, 255); /* White form background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: rgb(0, 123, 255); /* Bright blue for heading */
+    }
+
+    .btn-primary {
+      background-color: rgb(0, 123, 255); /* Bright blue button */
+      border: none;
+      padding: 12px;
+    }
+
+    .btn-primary:hover {
+      background-color: rgb(0, 86, 179); /* Darker blue on hover */
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container mt-3">
-  <h2>Subjects Add Form</h2><br>
-  <form action="" method="post">
-    {% csrf_token %}
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Enter Subjects name" name="subname">
+  <div class="form">
+    <h2>Add New Subject</h2>
+    <form action="" method="post" class="row g-3">
+      {% csrf_token %}
+
+      <div class="col-md-4">
+        <label for="subname" class="form-label">Subject Name</label>
+        <input type="text" class="form-control" id="subname" placeholder="Enter Subject Name" name="subname" required>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Enter subject code" name="sub_code">
+
+      <div class="col-md-4">
+        <label for="sub_code" class="form-label">Subject Code</label>
+        <input type="text" class="form-control" id="sub_code" placeholder="Enter Subject Code" name="sub_code" required>
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <!-- Proper dropdown using select -->
-        <div class="form-group primary">
-          <label for="department">Select Department</label>
-          <select class="form-control" id="department" name="sub_dept">
-            <option value="Computer Science">Computer Science</option>
-            <option value="Electrical Engineering">Electrical Engineering</option>
-            <option value="Mechanical Engineering">Mechanical Engineering</option>
-          </select>
+
+      <div class="col-md-4">
+        <label for="department" class="form-label">Department</label>
+        <select class="form-select" id="department" name="sub_dept" required>
+          <option value="" selected>Select Department</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Electrical Engineering">Electrical Engineering</option>
+          <option value="Mechanical Engineering">Mechanical Engineering</option>
+        </select>
+      </div>
+      
+      <div class="col-md-4">
+        <label for="semester" class="form-label">Semester</label>
+        <select class="form-select" id="semester" name="semester" required>
+          <option value="" selected>Select Semester</option>
+          <option value="1">1st</option>
+          <option value="2">2nd</option>
+          <option value="3">3rd</option>
+          <option value="4">4th</option>
+          <option value="5">5th</option>
+          <option value="6">6th</option>
+        </select>
+      </div>
+      
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="remember" id="remember">
+          <label class="form-check-label" for="remember">Remember me</label>
         </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Enter semester" name="sem">
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-    </div>
-    <br><br>
+    </form>
+  </div>
 
-    <div class="form-check mb-3">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-<!-- Bootstrap 5 JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap 5 JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    
+    
+</script>
 </body>
+
 </html>
 {% include "../components/footer.html" %}
