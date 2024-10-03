@@ -66,19 +66,3 @@ def Addsubject(request):
             "Message":"Record added successfully!",
         }
         return render(request,"subjects/index.html",data)
-    
-
-
-def Subject(request):
-        subData=Subjects.objects.all()
-        subData={
-            "subData":subData
-        }
-        return render(request,"subject/index.html",subData)
-
-def subject(request):
-    subData = Subjects.objects.all()
-    subData={
-        "subData":subData
-    }
-    return render(request,"subjects/index.html",subData)
