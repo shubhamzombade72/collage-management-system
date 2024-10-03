@@ -84,5 +84,5 @@ def LoginForm(request):
             femail=email,
             password=password,
             )
-        saveData.save()
+        saveData.save() 
         return redirect(department_list)
