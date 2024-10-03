@@ -3,9 +3,17 @@ from django.http import response
 from subject.models import Subjects
 def subject(request):
     subData = Subjects.objects.all()
-    subData={
-        "subData":subData
-    }
+    if not request.session.get("success"): 
+        subData={
+            "subData":subData
+        }
+    else:
+        message = request.session.get("success")
+        subData={
+            "subData":subData,
+            "Message":message
+        }
+        del request.session["success"]
     return render(request,"subjects/index.html",subData)
 
 def view(request,id):
@@ -60,9 +68,5 @@ def Addsubject(request):
             )
         saveData.save()
         
-        subData = Subjects.objects.all()
-        data={
-            "subData":subData,
-            "Message":"Record added successfully!",
-        }
-        return render(request,"subjects/index.html",data)
+        request.session["success"] = "Record added successfully!"
+        return redirect(subject)
