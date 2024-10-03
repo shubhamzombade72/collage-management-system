@@ -3,7 +3,7 @@ from django.http import response
 from subject.models import Subjects
 def subject(request):
     subData = Subjects.objects.all()
-    if not request.session.get: 
+    if not request.session.get("success"): 
         subData={
             "subData":subData
         }
@@ -13,7 +13,7 @@ def subject(request):
             "subData":subData,
             "Message":message
         }
-        del request.session["sucess"]
+        del request.session["success"]
     return render(request,"subjects/index.html",subData)
 
 def view(request,id):
