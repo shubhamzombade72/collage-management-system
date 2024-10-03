@@ -72,7 +72,13 @@ def Addstudent(request):
             saddress=address
             )
         saveData.save()
-        return redirect(student1)
+        StudentData = students.objects.all()
+        data={
+            "StudentData":StudentData,
+            "Message":"Record added successfully!",
+        }
+        return render(request,"student/index.html",data)
+    
     
 def LoginForm(request):
     if request.method == "GET":

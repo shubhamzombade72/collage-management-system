@@ -35,7 +35,11 @@ urlpatterns = [
     path('student-delete/<id>',studentview.delete),
     path('student-edit/<id>',studentview.editstudent),
     path('student-add/',studentview.Addstudent),
+<<<<<<< HEAD
+    
+=======
     path('student/',studentview.LoginForm),
+>>>>>>> 29a1036733eb476ca625822b4e04a1966e8b93c1
 
 
 
