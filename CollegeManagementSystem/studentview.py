@@ -1,10 +1,20 @@
 from django.shortcuts import render,redirect
 from student.models import students
+from django.http import response
 def student1(request):
     StudentData = students.objects.all()
-    sdata={
-        "StudentData":StudentData
-    }
+    if not request.session.get("success"):
+        sdata={
+            "StudentData":StudentData
+        }
+    else:
+        message = request.session.get("success")
+        sdata={
+            "StudentData":StudentData,
+            "Message": message
+        }
+        del request.session["success"]
+
     return render(request,"student/index.html",sdata)
 
 def sview(request,id):
@@ -72,13 +82,8 @@ def Addstudent(request):
             saddress=address
             )
         saveData.save()
-        StudentData = students.objects.all()
-        data={
-            "StudentData":StudentData,
-            "Message":"Record added successfully!",
-        }
-        return render(request,"student/index.html",data)
-    
+        request.session["success"] = "Record added successfully!"
+        return redirect(student1)
     
 def LoginForm(request):
     if request.method == "GET":
