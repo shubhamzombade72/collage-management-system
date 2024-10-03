@@ -1,12 +1,23 @@
 from django.shortcuts import render,redirect
 from Faculty.models import facultys
 from django.http import response
+
 def faculty1(request):
     facultyData = facultys.objects.all()
-    fdata={
-        "facultyData":facultyData
-    }
+    if not request.session.get("success"):
+        fdata={
+            "facultyData":facultyData,
+        }
+    else:
+        message = request.session.get("success")
+        fdata={
+            "facultyData":facultyData,
+            "Message": message
+        }
+        del request.session["success"]
+
     return render(request,"Faculty/index.html",fdata)
+
 
 
 def fview(request, id):
@@ -70,25 +81,27 @@ def AddFaculty(request):
             fqualification=qualify,
             )
         saveData.save()
-        facultyData= facultys.objects.all()
-        data={
-            "facultyData":facultyData,
-            "Message":"Record added successfully!",
-        }
-        return render(request,"Faculty/index.html",data)
+         
+        request.session["success"] = "Record added successfully!"
+        return redirect(faculty1)
         
     
 def LoginForm(request):
     if request.method == "GET":
-        return render(request,"Faculty/LoginForm.html")
+        return render(request, "Faculty/LoginForm.html")
     else:
-        email = request.POST.get("femail")
+        email = request.POST.get("femail") 
         password = request.POST.get("password")
 
-        saveData = facultys(
-            femail=email,
-            password=password,
-            )
-        saveData.save()
-        return redirect(faculty1)
-    
+       
+        try:
+            facultyData = facultys.objects.get(femail=email, password=password)
+            request.session['faculty_id'] = facultyData.id
+            request.session['faculty_name'] = facultyData.fname
+            request.session['faculty_email'] = facultyData.femail  
+            
+            return redirect('faculty1')  
+        except facultys.DoesNotExist:
+            return render(request, "Faculty/LoginForm.html", {
+                "error": "Invalid email or password"
+            })

@@ -40,6 +40,7 @@ urlpatterns = [
 
 
 
+
     path('faculty-list/', facultyview.faculty1),
     path('faculty-view/<id>', facultyview.fview),
     path('faculty-delete/<id>',facultyview.delete),
