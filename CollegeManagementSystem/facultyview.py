@@ -90,18 +90,17 @@ def LoginForm(request):
     if request.method == "GET":
         return render(request, "Faculty/LoginForm.html")
     else:
-        email = request.POST.get("femail")
+        email = request.POST.get("femail") 
         password = request.POST.get("password")
 
-        # Verify if the faculty exists with the entered credentials
+       
         try:
             facultyData = facultys.objects.get(femail=email, password=password)
-            
-            # Store user details in session
             request.session['faculty_id'] = facultyData.id
             request.session['faculty_name'] = facultyData.fname
+            request.session['faculty_email'] = facultyData.femail  
             
-            return redirect(faculty1)  # Redirect to the faculty dashboard
+            return redirect('faculty1')  
         except facultys.DoesNotExist:
             return render(request, "Faculty/LoginForm.html", {
                 "error": "Invalid email or password"
