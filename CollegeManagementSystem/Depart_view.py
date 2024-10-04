@@ -17,6 +17,7 @@ def department_list(request):
         del request.session["success"]
     return render(request, 'Departments/index.html', data)
 
+
 def department_view(request, id):
     department_data = Department.objects.all()  
     data = {
