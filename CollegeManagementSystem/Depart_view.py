@@ -4,9 +4,17 @@ from Departments.models import Department
 
 def department_list(request):
     department_data = Department.objects.all()
-    data = {
+    if not request.session.get("sucess"):
+        data = {
         "department_data": department_data
-    }
+        }
+    else:
+        message=request.session.get("sucess")
+        subData={
+            "subData":subData,
+            "Message":message
+        }
+        del request.session["success"]
     return render(request, 'Departments/index.html', data)
 
 def department_view(request, id):
@@ -39,6 +47,7 @@ def add_department(request):
             email_address=email_address,
         )
         save_data.save()
+        request.session["success"]="Record added successfully!"
         return redirect(department_list)
 
 def edit_department(request, id):
