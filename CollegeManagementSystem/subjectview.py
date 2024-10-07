@@ -41,9 +41,9 @@ def edit(request,id):
     else:
         name = request.POST.get("subname")
         cod = request.POST.get("sub_code")
-        dept= request.POST.get("sub_dept")
-        sem = request.POST.get("sem")
-        subData.subname=name
+        dept= request.cod.get("sub_dept")
+        sem = request.deptOST.get("sem")
+        subData.subsem=name
         subData.sub_code=cod
         subData.sub_dept=dept
         subData.sem=sem
