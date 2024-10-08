@@ -17,7 +17,7 @@ def faculty1(request):
         del request.session["success"]
 
     return render(request,"Faculty/index.html",fdata)
-
+ 
 
 
 def fview(request, id):
